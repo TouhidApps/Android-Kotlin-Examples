@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.touhidapps.androidwidget.MainActivity">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:padding="8sp"
+        android:text="Android Widgets Example" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/buttonButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Button" />
+
+            <Button
+                android:id="@+id/buttonToast"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Toast" />
+
+            <Button
+                android:id="@+id/buttonCheckBoxAndRadio"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Check box, Radio, Switch" />
+
+            <Button
+                android:id="@+id/buttonAlertDialog"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Alert Dialog" />
+
+            <Button
+                android:id="@+id/buttonSpinner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Spinner" />
+
+            <Button
+                android:id="@+id/buttonTextViewEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Text View / Edit Text" />
+
+            <Button
+                android:id="@+id/buttonRatingBar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Rating Bar" />
+
+            <Button
+                android:id="@+id/buttonDateTimePicker"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Date Time Picker" />
+
+            <Button
+                android:id="@+id/buttonWebView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Web View and Progress Bar" />
+
+            <Button
+                android:id="@+id/buttonListView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="List View" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_chat_room"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.touhidapps.chatapptest.ChatRoomActivity">
+
+    <TextView
+        android:id="@+id/textViewTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#fbe8e8"
+        android:gravity="center"
+        android:padding="4dp"
+        android:text="Chat Rooms" />
+
+    <ListView
+        android:id="@+id/listViewChatRoom"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/textViewTitle"
+        android:layout_marginBottom="60dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="#fde9e9"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/editTextRoomName"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:layout_weight=".8" />
+
+        <Button
+            android:id="@+id/buttonAddChatRoom"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight=".2"
+            android:padding="8dp"
+            android:text="Add" />
+
+    </LinearLayout>
+
+</RelativeLayout>

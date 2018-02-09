@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/constraintLayoutRoot"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <!-- ConstraintLayout still not supported for notification -->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/imageViewSmallImage"
+            android:layout_width="65dp"
+            android:layout_height="match_parent"
+            android:padding="6dp"
+            android:src="@drawable/flower" />
+
+        <TextView
+            android:id="@+id/textViewTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:lines="3"
+            android:padding="6dp"
+            android:text="TextView TextView TextView TextView TextView TextView TextView TextView TextView TextView TextView TextView "
+            android:textColor="#4b4b4b"
+            android:textSize="15sp" />
+
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/imageViewBigImage"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:src="@drawable/flower" />
+
+    <Button
+        android:id="@+id/buttonSave"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Save Image" />
+
+</LinearLayout>
