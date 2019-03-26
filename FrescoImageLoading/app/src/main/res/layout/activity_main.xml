@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
+    tools:context=".MainActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <com.facebook.drawee.view.SimpleDraweeView
+                android:id="@+id/imageViewOne"
+                android:layout_width="300dp"
+                android:layout_height="200dp"
+                fresco:placeholderImage="@drawable/thumb" />
+
+            <com.facebook.drawee.view.SimpleDraweeView
+                android:id="@+id/imageViewTwo"
+                android:layout_width="300dp"
+                android:layout_height="200dp"
+                fresco:actualImageScaleType="focusCrop"
+                fresco:backgroundImage="@color/blue"
+                fresco:fadeDuration="300"
+                fresco:failureImage="@drawable/error"
+                fresco:failureImageScaleType="centerInside"
+                fresco:overlayImage="@drawable/watermark"
+                fresco:placeholderImage="@color/wait_color"
+                fresco:placeholderImageScaleType="fitCenter"
+                fresco:pressedStateOverlayImage="@color/red"
+                fresco:progressBarAutoRotateInterval="1000"
+                fresco:progressBarImage="@drawable/progress_bar"
+                fresco:progressBarImageScaleType="centerInside"
+                fresco:retryImage="@drawable/retrying"
+                fresco:retryImageScaleType="centerCrop"
+                fresco:roundAsCircle="true"
+                fresco:roundBottomEnd="false"
+                fresco:roundBottomLeft="false"
+                fresco:roundBottomRight="true"
+                fresco:roundBottomStart="false"
+                fresco:roundTopEnd="true"
+                fresco:roundTopLeft="true"
+                fresco:roundTopRight="true"
+                fresco:roundTopStart="false"
+                fresco:roundWithOverlayColor="@color/corner_color"
+                fresco:roundedCornerRadius="5dp"
+                fresco:roundingBorderColor="@color/border_color"
+                fresco:roundingBorderWidth="5dp" />
+
+            <com.facebook.drawee.view.SimpleDraweeView
+                android:id="@+id/imageViewThree"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_marginTop="30dp"
+                fresco:roundAsCircle="true"
+                fresco:roundBottomEnd="false"
+                fresco:roundBottomStart="false"
+                fresco:roundedCornerRadius="30dp"
+                fresco:roundingBorderColor="@color/red"
+                fresco:roundingBorderWidth="1dp" />
+
+            <com.facebook.drawee.view.SimpleDraweeView
+                android:id="@+id/imageViewFour"
+                android:layout_width="100dp"
+                android:layout_height="150dp"
+                android:layout_marginTop="30dp"
+                fresco:roundBottomEnd="true"
+                fresco:roundBottomStart="true"
+                fresco:roundedCornerRadius="30dp" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+
+</RelativeLayout>

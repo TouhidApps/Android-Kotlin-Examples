@@ -31,9 +31,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
     private void initUI() {
-        editText = (EditText) findViewById(R.id.editText);
-        buttonClear = (Button) findViewById(R.id.buttonClear);
-        buttonTalk = (Button) findViewById(R.id.buttonTalk);
+        editText = findViewById(R.id.editText);
+        buttonClear = findViewById(R.id.buttonClear);
+        buttonTalk = findViewById(R.id.buttonTalk);
 
         buttonClear.setOnClickListener(this);
         buttonTalk.setOnClickListener(this);

@@ -1,12 +1,15 @@
 package com.touhidapps.androidnotificationexample;
 
 import android.app.Notification;
+import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.os.Build;
+import android.support.v4.app.NotificationCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -92,29 +95,76 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     public void createNotificationOne() {
-        // Prepare intent which is triggered if the
-        // notification is selected
-        Intent intent = new Intent(this, NotificationActivity.class);
-        intent.setAction(MY_ACTION);
-        intent.putExtra(NAME, "Touhid");
-        intent.putExtra(INFO, "Touhid Apps!");
+//        // Prepare intent which is triggered if the
+//        // notification is selected
+//        Intent intent = new Intent(this, NotificationActivity.class);
+//        intent.setAction(MY_ACTION);
+//        intent.putExtra(NAME, "Touhid");
+//        intent.putExtra(INFO, "Touhid Apps!");
+//
+//        PendingIntent pIntent = PendingIntent.getActivity(this, (int) System.currentTimeMillis(), intent, 0); //PendingIntent.FLAG_UPDATE_CURRENT
+//
+//        // Build notification
+//        // Actions are just fake
+//
+//        NotificationManager notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+//
+//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O && notificationManager != null) {
+//            String channelID = "My Channel ID"; // The id of the channel.
+//            int importance = NotificationManager.IMPORTANCE_HIGH;
+//            NotificationChannel mChannel = new NotificationChannel(channelID, "My_Name", importance);
+//            // Create a notification and set the notification channel.
+//            Notification notification = getNotificationBuilder(pIntent).setChannelId(channelID).build();
+//            notificationManager.createNotificationChannel(mChannel);
+//            notificationManager.notify(1, notification);
+//        } else if (notificationManager != null) {
+//            NotificationCompat.Builder notificationBuilder = getNotificationBuilder(pIntent);
+//            notificationBuilder.setPriority(Notification.PRIORITY_MAX);
+//            notificationManager.notify(1 /* ID of notification */, notificationBuilder.build());
+//        }
 
-        PendingIntent pIntent = PendingIntent.getActivity(this, (int) System.currentTimeMillis(), intent, 0); //PendingIntent.FLAG_UPDATE_CURRENT
 
-        // Build notification
-        // Actions are just fake
-        Notification notif = new Notification.Builder(this)
-                .setContentTitle("New mail from " + "test@gmail.com")
-                .setContentText("Subject").setSmallIcon(R.drawable.ic_stat_active)
-                .setContentIntent(pIntent)
-                .setAutoCancel(true) // hide the notification after its selected
-                .addAction(R.drawable.ic_action_call, "Call", pIntent)
-                .addAction(R.drawable.ic_action_call, "More", pIntent)
-                .addAction(R.drawable.ic_action_call, "And more", pIntent).build();
         NotificationManager notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
 
-        notificationManager.notify(0, notif); // different id to show different notification
+        RemoteViews notificationView = getNotificationView();
 
+        if(notificationView == null)
+            return;
+
+        NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(this)
+                        .setSmallIcon(R.drawable.flower);
+
+        notificationBuilder.setContent(notificationView);
+
+        notificationManager.notify(1000, notificationBuilder.build());
+
+
+
+    }
+
+    private RemoteViews getNotificationView(){
+        RemoteViews notificationView = new RemoteViews(getPackageName(), R.layout.custom_notif_layout_two);
+
+//        notificationView.setImageViewBitmap(R.id.icon, myDrawable);
+        notificationView.setImageViewResource(R.id.icon, R.drawable.flower);
+        notificationView.setTextViewText(R.id.the_title, "OMGWTFBBQOMGWTFBBQOMGWTFBBQOMGWTFBBQOMGWTFBBQOMGWTFBBQOMGWTFBBQOMGWTFBBQOMGWTFBBQ");
+        notificationView.setTextViewText(R.id.some_text_left, "blablablabla, orange, apple");
+        notificationView.setTextViewText(R.id.some_text_right, "50%");
+
+        return notificationView;
+    }
+
+
+    private NotificationCompat.Builder getNotificationBuilder(PendingIntent pendingIntent) {
+        return new NotificationCompat.Builder(this)
+                .setSmallIcon(R.drawable.ic_action_call)
+                .setContentTitle("dkjfhisd")
+                .setContentText("sdos")
+                .setStyle(new NotificationCompat.BigTextStyle().bigText("skjsforisufpoeijfaojf"))
+                .setAutoCancel(true)
+                .setPriority(Notification.PRIORITY_MAX)
+//                .setSound(defaultSoundUri)
+                .setContentIntent(pendingIntent);
     }
 
 
@@ -167,6 +217,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Notification.BigPictureStyle notiStyle = new Notification.BigPictureStyle();
         notiStyle.setBigContentTitle("Big Picture Expanded");
         notiStyle.setSummaryText("Nice big picture.");
+
 
         Bitmap remote_picture = null;
         try {
@@ -248,17 +299,32 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         remoteViews.setOnClickPendingIntent(R.id.buttonSave, piResult);
 
-        Notification myNotification = new Notification.Builder(this)
-                .setSmallIcon(R.drawable.ic_stat_active)
-                .setAutoCancel(true)
-                .setContentIntent(piResult)
-                .setContentTitle(notificationDataModel.getTitleSmall())
-                .setContentText(notificationDataModel.getDetailSmall())
-                .build();
-        myNotification.bigContentView = remoteViews;
+//        Notification myNotification = new Notification.Builder(this)
+//                .setSmallIcon(R.drawable.ic_stat_active)
+//                .setAutoCancel(true)
+//                .setContentIntent(piResult)
+//                .setContentTitle(notificationDataModel.getTitleSmall())
+//                .setContentText(notificationDataModel.getDetailSmall())
+//                .build();
+//        myNotification.bigContentView = remoteViews;
 
-        NotificationManager notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-        notificationManager.notify(notId, myNotification);
+        NotificationManager notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O && notificationManager != null) {
+            String channelID = "My Channel ID"; // The id of the channel.
+            int importance = NotificationManager.IMPORTANCE_HIGH;
+            NotificationChannel mChannel = new NotificationChannel(channelID, "My_Name", importance);
+            // Create a notification and set the notification channel.
+            Notification notification = getNotificationBuilder(piResult).setChannelId(channelID).build();
+            notification.bigContentView = remoteViews;
+            notificationManager.createNotificationChannel(mChannel);
+            notificationManager.notify(1, notification);
+
+        } else if (notificationManager != null) {
+            NotificationCompat.Builder notificationBuilder = getNotificationBuilder(piResult);
+            notificationBuilder.setCustomBigContentView(remoteViews);
+            notificationManager.notify(1 /* ID of notification */, notificationBuilder.build());
+        }
 
     }
 

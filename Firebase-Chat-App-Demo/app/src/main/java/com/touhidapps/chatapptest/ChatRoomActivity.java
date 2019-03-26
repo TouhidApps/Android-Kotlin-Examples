@@ -124,5 +124,9 @@ public class ChatRoomActivity extends AppCompatActivity {
             }
         });
         builder.show();
+
     }
+
+
+
 }

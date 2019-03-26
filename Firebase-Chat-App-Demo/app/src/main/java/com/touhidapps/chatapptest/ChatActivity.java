@@ -46,7 +46,6 @@ public class ChatActivity extends AppCompatActivity {
 
         databaseReference = FirebaseDatabase.getInstance().getReference().child(roomName);
 
-
         imageButtonSendMessage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
