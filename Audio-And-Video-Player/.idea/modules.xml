@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/AudioAndVideoPlayerAndroid.iml" filepath="$PROJECT_DIR$/AudioAndVideoPlayerAndroid.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Audio-And-Video-Player.iml" filepath="$PROJECT_DIR$/Audio-And-Video-Player.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>

@@ -16,14 +16,29 @@ public class MyService extends Service {
     private static final String TAG = "MyService";
     private String name;
 
-
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
         if (intent != null)
             name = intent.getStringExtra("NAME");
         Log.d(TAG, "onStartCommand: " + name);
         Toast.makeText(this, "StartCommand", Toast.LENGTH_SHORT).show();
+
         return START_STICKY;
+    }
+
+    @Override
+    public void onCreate() {
+        super.onCreate();
+
+        for (int i = 0; i < 100; i++) {
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            Log.d(TAG, "onCreate: "+i);
+        }
+
     }
 
     @Nullable
@@ -31,7 +46,6 @@ public class MyService extends Service {
     public IBinder onBind(Intent intent) {
         return null;
     }
-
 
     @Override
     public void onDestroy() {

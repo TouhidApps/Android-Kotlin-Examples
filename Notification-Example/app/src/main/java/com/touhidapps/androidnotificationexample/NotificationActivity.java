@@ -20,6 +20,7 @@ public class NotificationActivity extends AppCompatActivity {
         textViewName = findViewById(R.id.textViewName);
         textViewInfo = findViewById(R.id.textViewInfo);
 
+        // Notification will be received here
         if (getIntent().getAction().equals("my.action")) {
             textViewName.setText(getIntent().getStringExtra(MainActivity.NAME));
             textViewInfo.setText(getIntent().getStringExtra(MainActivity.INFO));

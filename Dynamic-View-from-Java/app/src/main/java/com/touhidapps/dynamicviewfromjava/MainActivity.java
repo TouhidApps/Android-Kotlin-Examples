@@ -1,9 +1,13 @@
 package com.touhidapps.dynamicviewfromjava;
 
+import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -22,24 +26,26 @@ public class MainActivity extends AppCompatActivity {
 
         //----------------------
         // set view from java
-//        LinearLayout linearLayout = new LinearLayout(this);
-//        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(
-//                LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT
-//        );
-//
-//        linearLayout.setBackgroundColor(Color.GREEN);
-//        ImageView imageView = new ImageView(this);
-//        imageView.setImageResource(R.drawable.fruit);
-//        imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
-//
-//        LinearLayout.LayoutParams layoutParamsImgView = new LinearLayout.LayoutParams(
-//                LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT
-//        );
-//        imageView.setLayoutParams(layoutParamsImgView);
-//        linearLayout.addView(imageView);
-//
-//
-//        setContentView(linearLayout, layoutParams);
+        LinearLayout linearLayout = new LinearLayout(this);
+        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT
+        );
+
+        linearLayout.setBackgroundColor(Color.GREEN);
+        ImageView imageView = new ImageView(this);
+        imageView.setImageResource(R.drawable.fruit);
+        imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
+
+        // ImageView size
+        LinearLayout.LayoutParams layoutParamsImgView = new LinearLayout.LayoutParams(
+                300, 300
+        );
+
+        imageView.setLayoutParams(layoutParamsImgView);
+        linearLayout.addView(imageView);
+
+
+        setContentView(linearLayout, layoutParams);
         //----------------------
 
 

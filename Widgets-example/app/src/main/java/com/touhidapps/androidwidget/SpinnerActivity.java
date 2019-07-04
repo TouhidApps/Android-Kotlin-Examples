@@ -9,7 +9,7 @@ import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-public class SpinnerActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
+public class SpinnerActivity extends AppCompatActivity {
 
     Spinner spinner, spinnerCustom;
     String[] brandNames = {"Apple", "Dell", "Asus", "HP"};
@@ -24,7 +24,18 @@ public class SpinnerActivity extends AppCompatActivity implements AdapterView.On
 
         spinner = (Spinner) findViewById(R.id.spinner);
         buttonCheckSpinner = (Button) findViewById(R.id.buttonCheckSpinner);
-        spinner.setOnItemSelectedListener(this);
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                Toast.makeText(getApplicationContext(), "" + arrayAdapter.getItem(position), Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+
         arrayAdapter = new ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, brandNames);
 //        arrayAdapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item, brandNames); // for no padding items
         spinner.setAdapter(arrayAdapter);
@@ -32,25 +43,33 @@ public class SpinnerActivity extends AppCompatActivity implements AdapterView.On
         buttonCheckSpinner.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(SpinnerActivity.this, spinner.getSelectedItemId() + " " + spinner.getSelectedItem().toString(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(SpinnerActivity.this, spinner.getSelectedItemId() + " "
+                        + spinner.getSelectedItem().toString(), Toast.LENGTH_SHORT).show();
             }
         });
 
+
+
+
+
+
         // custom spinner with custom xml
         spinnerCustom = (Spinner) findViewById(R.id.spinnerCustom);
-        spinnerCustom.setOnItemSelectedListener(this);
+        spinnerCustom.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                Toast.makeText(getApplicationContext(), "" + arrayAdapter.getItem(position), Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
         arrayAdapterCustom = new ArrayAdapter(this, R.layout.spinner_custom, brandNames);
         spinnerCustom.setAdapter(arrayAdapterCustom);
     }
 
 
-    @Override
-    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-        Toast.makeText(this, "" + arrayAdapter.getItem(position), Toast.LENGTH_SHORT).show();
-    }
 
-    @Override
-    public void onNothingSelected(AdapterView<?> parent) {
-
-    }
 }

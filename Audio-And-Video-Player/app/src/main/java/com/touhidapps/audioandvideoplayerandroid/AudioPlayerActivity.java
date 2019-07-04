@@ -60,7 +60,7 @@ public class AudioPlayerActivity extends AppCompatActivity implements View.OnCli
         mediaPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC);
 
         try {
-            mediaPlayer.setDataSource(AudioPlayerActivity.this, Uri.parse("https://touhidapps.com/t/demo/media/akash.mp3"));
+            mediaPlayer.setDataSource(AudioPlayerActivity.this, Uri.parse("https://touhidapps.com/api/demo/akash.mp3"));
             mediaPlayer.prepareAsync(); // returns immediately, rather than blocking until enough data has been buffered
         } catch (IOException e) {
             e.printStackTrace();

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="java.util.List" />
+
+        <import type="java.util.Map" />
+
+        <import type="com.touhidapps.databindingexample.model.Person" />
+
+        <variable
+            name="persons"
+            type="List&lt;Person&gt;" />
+
+        <variable
+            name="students"
+            type="Map&lt;String,Integer&gt;" />
+
+        <variable
+            name="mName"
+            type="String" />
+
+        <variable
+            name="showMyImage"
+            type="boolean" />
+
+        <variable
+            name="myEvent"
+            type="com.touhidapps.databindingexample.activity.ExpressionLanguageActivity.MyClickEvent" />
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!--From array list-->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@{ `From list: ` + persons[0].firstName }" />
+
+        <!--From hash map-->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@{ `From hash map: ` + String.valueOf(students.get(`my_id`)) }" />
+
+        <!--From string value-->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@{ @string/person_info(persons[0].firstName, persons[0].lastName) }" />
+
+        <!--null check using ternary operator-->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@{ mName == null ? `No name found - Did not set Name` : mName}" />
+
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@{ showMyImage ? @drawable/placeholder : @drawable/ico }" />
+
+
+        <Button
+            android:onClick="@{ (view) -> myEvent.switchImage(view) }"
+            android:layout_width="wrap_content"
+            android:text="Switch Image"
+            android:layout_gravity="center_horizontal"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+</layout>
+

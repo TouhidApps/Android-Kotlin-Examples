@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Data Binding Example</string>
+    <!--for int %d , for string %s, for first param %0, for second param %1-->
+    <string name="person_info">First name: %0$s and last name: %1$s </string>
+</resources>

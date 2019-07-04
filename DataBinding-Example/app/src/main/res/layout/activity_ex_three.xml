@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="uName"
+            type="String" />
+
+        <variable
+            name="myClickHandler"
+            type="com.touhidapps.databindingexample.activity.ExThreeActivity.MyEventHandler" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical"
+        tools:context=".activity.ExThreeActivity">
+
+        <EditText
+            android:id="@+id/editTextName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Get input data Button test" />
+
+        <!-- = get and set data to variable (Two way binding)-->
+        <EditText
+            android:id="@+id/editTextName2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Send value by param Button test"
+            android:text="@={ uName }" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="@{ () -> myClickHandler.myClickEventGeneral() }"
+            android:text="General Click Event" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="@{ (view) -> myClickHandler.myClickEventWithView(view) }"
+            android:text="Click with view param" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="@{ (view) -> myClickHandler.myClickEventGetInputData(view) }"
+            android:text="Get input data" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="@{ (view) -> myClickHandler.myClickE(view, uName) }"
+            android:text="Send value by param (= Two way binding)" />
+
+    </LinearLayout>
+
+</layout>
+
+

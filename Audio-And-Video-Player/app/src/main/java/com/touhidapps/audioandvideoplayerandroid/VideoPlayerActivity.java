@@ -32,7 +32,7 @@ public class VideoPlayerActivity extends AppCompatActivity {
 
 
         // from url
-        videoView.setVideoURI(Uri.parse("https://touhidapps.com/t/demo/media/pink.mp4"));
+        videoView.setVideoURI(Uri.parse("https://touhidapps.com/api/demo/pink.mp4"));
 //        videoView.setVideoURI(Uri.parse("http://www.sample-videos.com/video/mp4/720/big_buck_bunny_720p_1mb.mp4"));
         videoView.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
             @Override
@@ -47,7 +47,6 @@ public class VideoPlayerActivity extends AppCompatActivity {
                 videoView.start(); // start again after end
             }
         });
-
 
         new Thread(new Runnable() {
             @Override

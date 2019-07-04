@@ -16,7 +16,7 @@ public class CheckBoxAndRadioActivity extends AppCompatActivity implements View.
     CheckBox checkboxAndroid, checkboxIos;
     Button buttonResultCheck, buttonRadio;
     RadioButton radioButtonWindows, radioButtonMac;
-    RadioGroup radioGroup;
+//    RadioGroup radioGroup;
     Switch switch1;
 
     @Override
@@ -30,7 +30,7 @@ public class CheckBoxAndRadioActivity extends AppCompatActivity implements View.
         checkboxIos = (CheckBox) findViewById(R.id.checkboxIos);
 
         // radio
-        radioGroup = (RadioGroup) findViewById(R.id.radioGroup);
+//        radioGroup = (RadioGroup) findViewById(R.id.radioGroup);
         radioButtonWindows = (RadioButton) findViewById(R.id.radioButtonWindows);
         radioButtonMac = (RadioButton) findViewById(R.id.radioButtonMac);
 
@@ -48,6 +48,7 @@ public class CheckBoxAndRadioActivity extends AppCompatActivity implements View.
 
             }
         });
+
 
         // buttons
         buttonResultCheck = (Button) findViewById(R.id.buttonResultCheck);

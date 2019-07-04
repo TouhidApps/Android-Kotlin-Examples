@@ -27,5 +27,7 @@ public class RatingBarActivity extends AppCompatActivity {
             }
         });
 
+//        ratingBar.getRating();
+
     }
 }

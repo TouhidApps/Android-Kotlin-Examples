@@ -10,7 +10,7 @@ import android.widget.Toast;
 
 import java.util.Locale;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener, TextToSpeech.OnInitListener {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener { // , TextToSpeech.OnInitListener
 
     EditText editText;
     Button buttonClear, buttonTalk;
@@ -25,7 +25,22 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         initUI();
 
-        textToSpeech = new TextToSpeech(getApplicationContext(), this);
+        textToSpeech = new TextToSpeech(getApplicationContext(), new TextToSpeech.OnInitListener() {
+            @Override
+            public void onInit(int i) {
+                if (i == TextToSpeech.SUCCESS) {
+                    int r = textToSpeech.setLanguage(Locale.US);
+
+                    if (r == TextToSpeech.LANG_MISSING_DATA || r == TextToSpeech.LANG_NOT_SUPPORTED) {
+                        Toast.makeText(getApplicationContext(), "Un-supported language", Toast.LENGTH_SHORT).show();
+                    } else {
+                        textToSpeechInit = true;
+                    }
+                } else {
+                    Toast.makeText(getApplicationContext(), "Text To Speech init Failed", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
 
     }
 
@@ -52,20 +67,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
-    @Override
-    public void onInit(int i) {
-        if (i == TextToSpeech.SUCCESS) {
-            int r = textToSpeech.setLanguage(Locale.US);
-
-            if (r == TextToSpeech.LANG_MISSING_DATA || r == TextToSpeech.LANG_NOT_SUPPORTED) {
-                Toast.makeText(this, "Un-supported language", Toast.LENGTH_SHORT).show();
-            } else {
-                textToSpeechInit = true;
-            }
-        } else {
-            Toast.makeText(this, "Text To Speech init Failed", Toast.LENGTH_SHORT).show();
-        }
-    }
+//    @Override
+//    public void onInit(int i) {
+//        if (i == TextToSpeech.SUCCESS) {
+//            int r = textToSpeech.setLanguage(Locale.US);
+//
+//            if (r == TextToSpeech.LANG_MISSING_DATA || r == TextToSpeech.LANG_NOT_SUPPORTED) {
+//                Toast.makeText(this, "Un-supported language", Toast.LENGTH_SHORT).show();
+//            } else {
+//                textToSpeechInit = true;
+//            }
+//        } else {
+//            Toast.makeText(this, "Text To Speech init Failed", Toast.LENGTH_SHORT).show();
+//        }
+//    }
 
     private void sayText(String speech) {
         if (!textToSpeechInit) {
