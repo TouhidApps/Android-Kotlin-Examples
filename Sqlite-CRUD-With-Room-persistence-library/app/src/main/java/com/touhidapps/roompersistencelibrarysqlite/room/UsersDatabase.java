@@ -17,20 +17,20 @@ import static android.content.ContentValues.TAG;
 @Database(entities = {UserEntity.class}, version = 3)
 public abstract class UsersDatabase extends RoomDatabase {
 
-    private static UsersDatabase INSTANCE;
+    private static UsersDatabase usersDatabase;
 
     public abstract UserDao userDao();
 
     public static UsersDatabase getInstance(Context context) {
-        if (INSTANCE == null) {
-            INSTANCE = Room.databaseBuilder(context.getApplicationContext(),
+        if (usersDatabase == null) {
+            usersDatabase = Room.databaseBuilder(context.getApplicationContext(),
                     UsersDatabase.class, "user.db")
                     .allowMainThreadQueries()
                     .addMigrations(MIGRATION_1_2, MIGRATION_2_3)
                     .build();
         }
 
-        return INSTANCE;
+        return usersDatabase;
     }
 
     private static final Migration MIGRATION_1_2 = new Migration(1, 2) {

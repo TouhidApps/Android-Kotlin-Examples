@@ -101,7 +101,6 @@ public class MainActivity extends AppCompatActivity {
                 finish();
             }
         });
-
         builder.show();
     } // showAlertForUserName
 
@@ -117,6 +116,7 @@ public class MainActivity extends AppCompatActivity {
         dbDocRef.collection("PublicChat").addSnapshotListener(new EventListener<QuerySnapshot>() {
             @Override
             public void onEvent(@Nullable QuerySnapshot queryDocumentSnapshots, @Nullable FirebaseFirestoreException e) {
+                // if error is not null then everything is not ok
                 if (e != null) {
                     Log.w(TAG, "Listen failed.", e);
                     return;
@@ -132,7 +132,7 @@ public class MainActivity extends AppCompatActivity {
                         String uName = String.valueOf(d.getDocument().getData().get("user"));
                         String uMessage = String.valueOf(d.getDocument().getData().get("message"));
 
-                        MessageModel mm = new MessageModel(uName, uMessage); // if we have custom recyclerView and list of pojo then we need this
+                        MessageModel mm = new MessageModel(uName, uMessage); // If we have custom recyclerView and list of pojo then we need this
 
                         stringList.add(mm.user + ": " + mm.message);
                     }

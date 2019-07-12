@@ -13,7 +13,6 @@ import com.touhidapps.roompersistencelibrarysqlite.room.UsersDatabase;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.ThreadPoolExecutor;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -64,11 +63,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.buttonSave:
-                usersDatabase.userDao().insertUser(new UserEntity(editTextSaveName.getText().toString(), editTextSavePhone.getText().toString()));
+                usersDatabase.userDao().insertUser(new UserEntity(
+                        editTextSaveName.getText().toString(),
+                        editTextSavePhone.getText().toString()));
                 break;
 
             case R.id.buttonUpdate:
-                UserEntity ue = new UserEntity(Integer.valueOf(editTextUpdateId.getText().toString()), editTextUpdateName.getText().toString(), editTextUpdatePhone.getText().toString());
+                UserEntity ue = new UserEntity(Integer.valueOf(
+                        editTextUpdateId.getText().toString()),
+                        editTextUpdateName.getText().toString(),
+                        editTextUpdatePhone.getText().toString());
+
                 usersDatabase.userDao().updateUser(ue);
                 break;
 

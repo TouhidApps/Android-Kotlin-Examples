@@ -56,6 +56,12 @@
                 fresco:roundingBorderColor="@color/border_color"
                 fresco:roundingBorderWidth="5dp" />
 
+            <!-- Make Full round fresco:roundAsCircle="true"-->
+
+            <!-- Make round corner -->
+            <!--fresco:roundBottomStart="false"-->
+            <!--fresco:roundedCornerRadius="30dp"-->
+
             <com.facebook.drawee.view.SimpleDraweeView
                 android:id="@+id/imageViewThree"
                 android:layout_width="100dp"

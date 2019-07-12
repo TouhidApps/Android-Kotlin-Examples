@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/RoompersistencelibrarySQLite.iml" filepath="$PROJECT_DIR$/RoompersistencelibrarySQLite.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Sqlite-CRUD-With-Room-persistence-library.iml" filepath="$PROJECT_DIR$/Sqlite-CRUD-With-Room-persistence-library.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>

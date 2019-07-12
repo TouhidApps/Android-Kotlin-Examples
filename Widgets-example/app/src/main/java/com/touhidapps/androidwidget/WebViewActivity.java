@@ -26,17 +26,20 @@ public class WebViewActivity extends AppCompatActivity implements View.OnClickLi
         setContentView(R.layout.activity_web_view);
         setTitle("Web View & Progress Bar Example");
 
-        buttonLoadSite = (Button) findViewById(R.id.buttonLoadSite);
-        buttonLoadFromLocal = (Button) findViewById(R.id.buttonLoadFromLocal);
+        buttonLoadSite = findViewById(R.id.buttonLoadSite);
+        buttonLoadFromLocal = findViewById(R.id.buttonLoadFromLocal);
         buttonLoadSite.setOnClickListener(this);
         buttonLoadFromLocal.setOnClickListener(this);
 
-        progressBar = (ProgressBar) findViewById(R.id.progressBar);
+        progressBar = findViewById(R.id.progressBar);
 
-        webView = (WebView) findViewById(R.id.webView);
+        webView = findViewById(R.id.webView);
+
         webView.getSettings().setJavaScriptEnabled(true);
+
         webView.setWebChromeClient(new WebChromeClient() {
             public void onProgressChanged(WebView view, int progress) {
+
                 if (progress < 100 && progressBar.getVisibility() == ProgressBar.GONE) {
                     progressBar.setVisibility(ProgressBar.VISIBLE);
                 }
@@ -44,6 +47,7 @@ public class WebViewActivity extends AppCompatActivity implements View.OnClickLi
                 if (progress == 100) {
                     progressBar.setVisibility(ProgressBar.GONE);
                 }
+
             }
         });
 
@@ -52,13 +56,14 @@ public class WebViewActivity extends AppCompatActivity implements View.OnClickLi
 
         webView.setWebViewClient(new WebViewClient() { // prevent open outside browser and error handling
 
-            // to remove no internet error page
+            // To remove no internet error page
             @Override
             public void onReceivedError(WebView view, WebResourceRequest request, WebResourceError error) {
                 webView.loadUrl("file:///android_asset/index.html");
                 // or
 //                webView.loadUrl("about:blank"); // for blank page
             }
+
         });
 
 

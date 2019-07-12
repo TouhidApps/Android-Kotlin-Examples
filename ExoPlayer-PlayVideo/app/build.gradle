@@ -32,5 +32,4 @@ dependencies {
 
     implementation 'com.google.android.exoplayer:exoplayer:2.7.3'
 
-
 }

@@ -26,17 +26,14 @@ public class AudioPlayerActivity extends AppCompatActivity implements View.OnCli
         buttonPlayPause.setOnClickListener(this);
         buttonStop.setOnClickListener(this);
 
-
-        // load from raw folder
+        // Load from raw folder
         mediaPlayer = MediaPlayer.create(this, R.raw.akash);
         mediaPlayer.start();
         buttonPlayPause.setText("Pause");
 
-
        // setMediaPlayerFromUrl();
 
-
-    }
+    } // onCreate
 
 
     @Override

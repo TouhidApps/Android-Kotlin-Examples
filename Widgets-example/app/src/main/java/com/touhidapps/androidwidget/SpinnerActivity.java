@@ -50,9 +50,6 @@ public class SpinnerActivity extends AppCompatActivity {
 
 
 
-
-
-
         // custom spinner with custom xml
         spinnerCustom = (Spinner) findViewById(R.id.spinnerCustom);
         spinnerCustom.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
