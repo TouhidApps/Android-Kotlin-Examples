@@ -47,4 +47,5 @@ Android Demo Example Projects with Kotlin for learning & tutorials
 29. Coroutines
 30. StateFlow
 31. NDK
-32. MVVM Design Pattern
+32. View Model & View Model Factory
+33. MVVM Design Pattern
