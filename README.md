@@ -1,2 +1,2 @@
-# Android-Demo-Projects
-Android Demo Example Projects with JAVA
+# Android Examples with Kotlin
+Android Demo Example Projects with Kotlin for tutorials and learn
